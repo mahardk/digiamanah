@@ -6,6 +6,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
@@ -53,6 +54,10 @@ class UmkmForm
                 ->image()
                 ->directory('umkm')
                 ->imageEditor()
+                ->imageEditorAspectRatioOptions([
+                    '1:1',
+                ])
+                ->imageEditorMode(2) 
                 ->columnSpanFull(),
             
             Select::make('kategori_usaha')
@@ -74,6 +79,20 @@ class UmkmForm
                     'terlaris' => 'Terlaris',
                 ])
                 ->placeholder('Tidak ada'),
+
+            FileUpload::make('foto_gallery')
+                ->label('Galeri Foto')
+                ->disk('public')
+                ->directory('umkm-gallery')
+                ->image()
+                ->multiple()
+                ->reorderable()
+                ->maxFiles(6)
+                ->columnSpanFull(),
+
+            Toggle::make('is_verified')
+                ->label('UMKM Terverifikasi')
+                ->default(false),
         ]);
     }
 }
