@@ -10,6 +10,8 @@ class Umkm extends Model
     protected $fillable = [
         'nama_umkm',
         'nama_pemilik',
+        'kategori_usaha',
+        'badge',
         'deskripsi',
         'alamat',
         'whatsapp',

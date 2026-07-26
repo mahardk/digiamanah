@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Umkms\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
@@ -53,6 +54,26 @@ class UmkmForm
                 ->directory('umkm')
                 ->imageEditor()
                 ->columnSpanFull(),
+            
+            Select::make('kategori_usaha')
+                ->label('Kategori Usaha')
+                ->options([
+                    'Kuliner' => 'Kuliner',
+                    'Snack' => 'Snack',
+                    'Minuman' => 'Minuman',
+                    'Kerajinan' => 'Kerajinan',
+                    'Fashion' => 'Fashion',
+                ])
+                ->searchable()
+                ->required(),
+
+            Select::make('badge')
+                ->label('Badge (opsional)')
+                ->options([
+                    'favorit' => 'Favorit',
+                    'terlaris' => 'Terlaris',
+                ])
+                ->placeholder('Tidak ada'),
         ]);
     }
 }
