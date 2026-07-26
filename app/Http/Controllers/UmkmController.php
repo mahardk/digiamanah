@@ -30,8 +30,10 @@ class UmkmController extends Controller
 
     public function show(string $slug)
     {
-        $umkm = Umkm::with('produks')->where('slug', $slug)->firstOrFail();
+        $umkm = Umkm::where('slug', $slug)->firstOrFail();
 
-        return view('umkm.show', compact('umkm'));
+        $produkLain = $umkm->produks()->latest()->take(5)->get();
+
+        return view('umkm.show', compact('umkm', 'produkLain'));
     }
 }

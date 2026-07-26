@@ -95,7 +95,7 @@
                     </p>
 
                     <span class="inline-block w-full text-center border border-[#355E3B] text-[#355E3B] text-sm font-medium rounded-md py-2 hover:bg-[#355E3B] hover:text-white transition">
-                        Lihat Detail →
+                        Lihat UMKM
                     </span>
                 </div>
 
