@@ -33,7 +33,8 @@
                     class="relative {{ request()->is('/') ? 'text-[#355E3B]' : 'hover:text-[#355E3B] transition' }}">
                         Beranda
                         @if (request()->is('/'))
-                            <span class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
+                            <span style="view-transition-name: nav-indicator;"
+                            class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
                         @endif
                     </a>
                 </li>
@@ -47,7 +48,8 @@
                     class="relative {{ request()->routeIs('umkm.*') ? 'text-[#355E3B]' : 'hover:text-[#355E3B] transition' }}">
                         UMKM
                         @if (request()->routeIs('umkm.*'))
-                            <span class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
+                            <span style="view-transition-name: nav-indicator;" 
+                            class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
                         @endif
                     </a>
                 </li>
