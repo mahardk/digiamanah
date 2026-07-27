@@ -29,15 +29,41 @@
             <ul class="flex items-center gap-10 xl:gap-12 text-[17px] xl:text-[18px] font-medium">
 
                 <li>
-                    <a href="#" class="relative text-[#355E3B]">
+                    <a href="{{ url('/') }}"
+                    class="relative {{ request()->is('/') ? 'text-[#355E3B]' : 'hover:text-[#355E3B] transition' }}">
                         Beranda
-                        <span class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
+                        @if (request()->is('/'))
+                            <span style="view-transition-name: nav-indicator;"
+                            class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
+                        @endif
                     </a>
                 </li>
 
-                <li><a href="#" class="hover:text-[#355E3B] transition">Tentang</a></li>
-                <li><a href="#" class="hover:text-[#355E3B] transition">UMKM</a></li>
-                <li><a href="#" class="hover:text-[#355E3B] transition">Produk</a></li>
+                <li>
+                    <a href="#" class="hover:text-[#355E3B] transition">Tentang</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('umkm.index') }}"
+                    class="relative {{ request()->routeIs('umkm.*') ? 'text-[#355E3B]' : 'hover:text-[#355E3B] transition' }}">
+                        UMKM
+                        @if (request()->routeIs('umkm.*'))
+                            <span style="view-transition-name: nav-indicator;" 
+                            class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
+                        @endif
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('produk.index') }}"
+                    class="relative {{ request()->routeIs('produk.*') ? 'text-[#355E3B]' : 'hover:text-[#355E3B] transition' }}">
+                        Produk
+                        @if (request()->routeIs('produk.*'))
+                            <span class="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-[#B08A59]"></span>
+                        @endif
+                    </a>
+                </li>
+
                 <li><a href="#" class="hover:text-[#355E3B] transition">Kontak</a></li>
 
             </ul>
@@ -158,7 +184,8 @@
             <ul class="space-y-1 text-[16px] font-medium">
 
                 <li>
-                    <a href="#" class="block rounded-lg bg-[#355E3B] px-4 py-3 text-white">
+                    <a href="{{ url('/') }}"
+                    class="block rounded-lg px-4 py-3 {{ request()->is('/') ? 'bg-[#355E3B] text-white' : 'hover:bg-gray-100' }}">
                         Beranda
                     </a>
                 </li>
@@ -170,13 +197,15 @@
                 </li>
 
                 <li>
-                    <a href="#" class="block rounded-lg px-4 py-3 hover:bg-gray-100">
+                    <a href="{{ route('umkm.index') }}"
+                    class="block rounded-lg px-4 py-3 {{ request()->routeIs('umkm.*') ? 'bg-[#355E3B] text-white' : 'hover:bg-gray-100' }}">
                         UMKM
                     </a>
                 </li>
 
                 <li>
-                    <a href="#" class="block rounded-lg px-4 py-3 hover:bg-gray-100">
+                    <a href="{{ route('produk.index') }}"
+                    class="block rounded-lg px-4 py-3 {{ request()->routeIs('produk.*') ? 'bg-[#355E3B] text-white' : 'hover:bg-gray-100' }}">
                         Produk
                     </a>
                 </li>
